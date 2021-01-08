@@ -7,7 +7,7 @@ const user = {
   name: 'John'
 }
 
-user.age = prompt('Enter a number: ')
+user.age = +prompt('Enter a number: ')
 
 console.log("User:", user);
 
