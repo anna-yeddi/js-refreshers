@@ -26,6 +26,8 @@ console.log((strLine1 + strLine2).length)
 // const userInput = '456'
 const userInput = prompt('Enter 3-digit number: ')
 
+// Solution #1:
+
 // let sum = Number(userInput[0]) + Number(userInput[1]) + Number(userInput[2])
 let sum = 0
 
@@ -34,3 +36,12 @@ for (let i = 0; i < userInput.length; i++) {
 }
 
 console.log('Sum:', sum, 'from the input of', userInput)
+
+// Solution #2:
+const num = Number(userInput)
+
+const digit3 = num % 10
+const digit1 = (num - (num % 100)) / 100
+const digit2 = (num - digit1 * 100 - digit3) / 10
+
+console.log('Sum (solution 2):', digit1 + digit2 + digit3)
