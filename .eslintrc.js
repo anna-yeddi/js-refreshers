@@ -7,6 +7,7 @@ module.exports = {
   extends: [
     'airbnb-base',
     'plugin:jest/recommended',
+    "eslint-config-prettier"
   ],
   parserOptions: {
     ecmaVersion: 12,
