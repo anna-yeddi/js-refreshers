@@ -2,10 +2,14 @@
  * 1.В переменных a и b хранятся числа. Написать программу,
  * которая выводит в консоль произведение и сумму этих чисел. */
 
-const a = Math.random().toFixed(3) * 1000;
-const b = Math.random().toFixed(3) * 1000;
+const num1 = Math.random().toFixed(3) * 1000;
+const num2 = Math.random().toFixed(3) * 1000;
 
-console.log(`Sum: ${a + b}, Multi: ${a * b}`);
+export default function sumAndMultiplier(a, b) {
+  console.log(`Sum: ${a + b}, Multi: ${a * b}`);
+}
+
+sumAndMultiplier(num1, num2);
 
 /**
  *  2. В двух переменных хранятся строки символов.
