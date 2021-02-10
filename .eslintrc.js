@@ -20,6 +20,14 @@ module.exports = {
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
+    "max-len": [
+      "error", { ignoreComments: true }
+    ],
+    "no-console": "off",
+    "no-alert": "off",
+    "no-plusplus": [
+      "error", { allowForLoopAfterthoughts: true }
+    ],
   },
   plugins: ["jest"],
 };
