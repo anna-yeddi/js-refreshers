@@ -18,6 +18,7 @@
   "homepage": "https://github.com/an-kova/js-refreshers#readme",
   "description": "",
   "devDependencies": {
+    "@types/jest": "^26.0.20",
     "jest": "^26.6.3"
   }
 }
