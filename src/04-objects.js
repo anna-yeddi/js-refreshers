@@ -4,20 +4,20 @@
  * в поле age объекта user. */
 
 const user = {
-  name: 'John',
+  name: "John",
 };
 
-user.age = +prompt('Enter a number: ');
+user.age = +prompt("Enter a number: ");
 
-console.log('User:', user);
+console.log("User:", user);
 
 /**
  * 2.Создать копию объекта user с именем admin.
  * Добавить новому объекту поле role со значением ‘admin’. */
 
-const admin = { ...user, role: 'admin' };
+const admin = { ...user, role: "admin" };
 
-console.log('Admin:', admin);
+console.log("Admin:", admin);
 
 /**
  * 3*. Записать все значения полей объекта admin в отдельные переменные.

@@ -1,7 +1,7 @@
 /**
  * 1.Вывести в консоль сумму всех целых чисел от 50 до 100. */
 
-console.log('=== Sum of integers 50 through 100: ===');
+console.log("=== Sum of integers 50 through 100: ===");
 
 let sum50 = 0;
 let i = 50;
@@ -20,7 +20,7 @@ console.log(sum50);
  * ...
  * 7 x 9 = 63 */
 
-console.log('=== Seven times table: ===');
+console.log("=== Seven times table: ===");
 
 for (let j = 1; j <= 9; j++) {
   console.log(`7 x ${j} = ${j * 7}`);
@@ -30,9 +30,9 @@ for (let j = 1; j <= 9; j++) {
  * 3* Запросить у пользователя ввод числа N. Вывести в консоль среднее
  * арифметическое всех нечётных чисел от 1 до N. */
 
-console.log('=== Arithmetic mean of odd numbers: ===');
+console.log("=== Arithmetic mean of odd numbers: ===");
 
-const userInput = +prompt('Enter any number N: ');
+const userInput = +prompt("Enter any number N: ");
 // const userInput = 3
 
 let sumArithMean = 0;
