@@ -2,19 +2,19 @@
  * 1. В переменных a и b хранятся числа.
  *  Вывести в консоль наибольшее из них. */
 
-const a = Math.random().toFixed(5) * 100000
-const b = Math.random().toFixed(5) * 100000
+const a = Math.random().toFixed(5) * 100000;
+const b = Math.random().toFixed(5) * 100000;
 
-const biggest = (a > b) ? a : b
+const biggest = (a > b) ? a : b;
 
-console.log(`${biggest} is the biggest among ${a} and ${b}`)
+console.log(`${biggest} is the biggest among ${a} and ${b}`);
 
 /**
  * 2. Запросить у пользователя ввод числа от 1 до 12.
  *  Вывести в консоль название месяца, соответствующее этому числу
  *  (1 — январь, 2 — февраль и т.д.). */
 
-const userInput = +prompt('Enter a number between 1 and 12: ')
+const userInput = +prompt('Enter a number between 1 and 12: ');
 // const userInput = 6
 
 // Solution #1:
@@ -64,7 +64,7 @@ switch (userInput) {
 
 // Solution #2:
 
-const monthArr = ['January','February','March','April','May','June','July','August','September','October','November','December']
+const monthArr = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 console.log('Month is: ', monthArr[userInput - 1]);
 
@@ -74,14 +74,14 @@ console.log('Month is: ', monthArr[userInput - 1]);
 
 // const circleArea = 200
 // const squareArea = 100
-const circleArea = Math.random().toFixed(2) * 100
-const squareArea = Math.random().toFixed(2) * 100
+const circleArea = Math.random().toFixed(2) * 100;
+const squareArea = Math.random().toFixed(2) * 100;
 
 // Формула для расчета диаметр круга через площадь: D=2√S/π
-const circleDiam = 2 * Math.sqrt(circleArea) / Math.PI
-const squareSide = Math.sqrt(squareArea)
+const circleDiam = 2 * Math.sqrt(circleArea) / Math.PI;
+const squareSide = Math.sqrt(squareArea);
 
-const circleCanFitInSquare = circleDiam <= squareSide
+const circleCanFitInSquare = circleDiam <= squareSide;
 
 console.log(`${circleCanFitInSquare} while the circle area is ${circleArea} and its diameter is ${circleDiam}
-  and the square area is ${squareArea} and its side is ${squareSide}`)
+  and the square area is ${squareArea} and its side is ${squareSide}`);
