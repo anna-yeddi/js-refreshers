@@ -14,6 +14,12 @@ describe('01-linear-algorithms', () => {
   })
 
   describe('multiplierAndSum', () => {
+    it('console.log a string', () => {
+      console.log = jest.fn();
+      multiplierAndSum(2, 3)
+      // The first argument of the first call to the function was 'string'
+      expect(typeof console.log.mock.calls[0][0]).toBe(`string`)
+    }),
     it('console.log result for integers', () => {
       console.log = jest.fn();
       multiplierAndSum(2, 3)
@@ -56,5 +62,39 @@ describe('01-linear-algorithms', () => {
       // The first argument of the first call to the function was 'Multi: NaN, Sum: AB'
       expect(console.log.mock.calls[0][0]).toBe(`Multi: NaN, Sum: AB`)
     })
-  })
+  });
+
+  describe('sumStringsLength', () => {
+    it('console.log result for strings to be a number', () => {
+      console.log = jest.fn();
+      sumStringsLength('string one', 'string two')
+      // The first argument of the first call to the function was 'number'
+      expect(typeof console.log.mock.calls[0][0]).toBe('number')
+    }),
+    it('console.log result for strings', () => {
+      console.log = jest.fn();
+      sumStringsLength('one', 'three')
+      // The first argument of the first call to the function was '8'
+      expect(console.log.mock.calls[0][0]).toBe(8)
+    }),
+    it('console.log result for a string and an integer', () => {
+      console.log = jest.fn();
+      sumStringsLength('one', 3)
+      // The first argument of the first call to the function was '4'
+      expect(console.log.mock.calls[0][0]).toBe(4)
+    }),
+    it('console.log result for null and undefined', () => {
+      console.log = jest.fn();
+      sumStringsLength(null)
+      // The first argument of the first call to the function was 'undefined'
+      expect(console.log.mock.calls[0][0]).toBe(undefined)
+    }),
+    it('console.log result for long strings', () => {
+      console.log = jest.fn();
+      sumStringsLength('Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe nemo totam architecto impedit inventore?', 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, consequatur sapiente. Minus a ab quos recusandae delectus. Quae, nihil error.')
+      // The first argument of the first call to the function was '255'
+      expect(console.log.mock.calls[0][0]).toBe(255)
+    })
+  });
+
 })
