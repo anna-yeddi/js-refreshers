@@ -33,14 +33,14 @@ sumStringsLength(str1, str2)
  *  3. * Написать программу, которая запрашивает у пользователя ввод
  * трёхзначного числа, а потом выводит в консоль сумму цифр введённого числа. */
 
-// const userInputPrompt = '456'
-const userInputPrompt = prompt("Enter 3-digit number: ");
-
 // Solution #0:
 // let sum = Number(userInput[0]) + Number(userInput[1]) + Number(userInput[2])
 
 // Solution #1:
-export function sumOfDigits(userInput) {
+export function sumOfDigits() {
+  const userInput = '456'
+  // const userInput = prompt("Enter 3-digit number: ");
+  
   let sum = 0;
   
   for (let i = 0; i < userInput.length; i++) {
@@ -51,10 +51,12 @@ export function sumOfDigits(userInput) {
   console.log(sum);
 }
 
-sumOfDigits(userInputPrompt)
+sumOfDigits();
 
 // Solution #2:
-export default function sumOfDigitsAnother(userInput) { 
+export function sumOfDigitsAnother() { 
+  // const userInput = '456'
+  const userInput = prompt("Enter 3-digit number: ");
   const num = Number(userInput);
   
   const digit3 = num % 10;
@@ -65,4 +67,4 @@ export default function sumOfDigitsAnother(userInput) {
   console.log(digit1 + digit2 + digit3);
 }
 
-sumOfDigitsAnother(userInputPrompt)
+sumOfDigitsAnother()

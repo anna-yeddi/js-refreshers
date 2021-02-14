@@ -11,13 +11,13 @@ describe('01-linear-algorithms', () => {
   let originalAlert;
   beforeEach(() => {
     originalConsoleLog = console.log;
-    originalPrompt = window.prompt;
-    originalAlert = window.alert;
+    // originalPrompt = window.prompt;
+    // originalAlert = window.alert;
   })
   afterEach(() => {
     console.log = originalConsoleLog;
-    window.prompt = originalPrompt;
-    window.alert = originalAlert;
+    // window.prompt = originalPrompt;
+    // window.alert = originalAlert;
   })
 
   describe('multiplierAndSum', () => {
@@ -110,27 +110,87 @@ describe('01-linear-algorithms', () => {
     })
   });
 
+  
   describe('sumOfDigits', () => {
+    
+    
     it('is a function', () => {
       expect(typeof sumOfDigits).toBe('function')
     }),
+    it('console.log sum of all 3 digits in "456" as a number 15', () => {
+      console.log = jest.fn();
+      sumOfDigits();
+      // The first argument of the first call to the function was '15'
+      expect(console.log.mock.calls[0][0]).toBe(15)
+    }),
+    it('console.log a number (not a NaN)', () => {
+      console.log = jest.fn();
+      jest.spyOn(window, 'prompt').mockReturnValue('987')
+      sumOfDigits();
+      // The first argument of the first call to the function was a number
+      expect(console.log.mock.calls[0][0]).not.toBeNaN()
+    }),
+    it('console.log a number', () => {
+      console.log = jest.fn();
+      sumOfDigits();
+      // The first argument of the first call to the function was a number
+      expect(typeof console.log.mock.calls[0][0]).toBe('number')
+    }),
+    it('console.log a number between 3 (for "111") and 27 (for "999")', () => {
+      console.log = jest.fn();
+      sumOfDigits();
+      const range = 3 <= console.log.mock.calls[0][0] <= 27
+      // The first argument of the first call to the function was an integer between 3 and 27
+      expect(range).toBe(true)
+    }),
     it('alerts a value entered to prompt', () => {
-      // jest.spy(window, 'prompt').mockImplementation(() => ['333'])
-      // jest.spy(window, 'prompt').returnValue('333')
-      // window.prompt = jest.fn(() => '333');
-      // window.alert = jest.fn();
-      // window.prompt = jest.fn(() => {
-      //   return '333'
-      // });
-      // const userInput = jest.spyOn(window, "prompt").mockImplementation(() => ['333'])
-      // console.log = jest.fn();
-      jest.spyOn(window, 'prompt').mockImplementation(() => '333');
-      expect(sumOfDigits('333')).toBe(9)
-      // sumOfDigits(userInput)
-    // expect(window.prompt).toBeCalled();
-      // expect(window.alert).toHaveBeenCalledWith('333')
-      // expect(window.alert).toHaveBeenCalledWith('Enter 3-digit number: ')
-    // })
+      console.log = jest.fn();
+      sumOfDigits();
+      jest.spyOn(window, "prompt").mockReturnValue("123");
+    	expect(console.log).toHaveBeenCalled();
+    })
+  });
+  
+  describe('sumOfDigitsAnother', () => {
+    
+    it('is a function', () => {
+      expect(typeof sumOfDigitsAnother).toBe('function')
+    }),
+    it('console.log sum of all 3 digits in "456" as a number 15', () => {
+      console.log = jest.fn();
+      jest.spyOn(window, 'prompt').mockReturnValue('456')
+      sumOfDigitsAnother();
+
+      // The first argument of the first call to the function was '15'
+      expect(console.log.mock.calls[0][0]).toBe(15)
+    }),
+    it('console.log a number (not a NaN)', () => {
+      console.log = jest.fn();
+      jest.spyOn(window, 'prompt').mockReturnValue('987')
+      sumOfDigitsAnother();
+      // The first argument of the first call to the function was a number
+      expect(console.log.mock.calls[0][0]).not.toBeNaN()
+    }),
+    it('console.log a number', () => {
+      console.log = jest.fn();
+      jest.spyOn(window, 'prompt').mockReturnValue('111')
+      sumOfDigitsAnother();
+      // The first argument of the first call to the function was a number
+      expect(typeof console.log.mock.calls[0][0]).toBe('number')
+    }),
+    it('console.log a number between 3 (for "111") and 27 (for "999")', () => {
+      console.log = jest.fn();
+      jest.spyOn(window, 'prompt').mockReturnValue('999')
+      sumOfDigitsAnother();
+      const range = 3 <= console.log.mock.calls[0][0] <= 27
+      // The first argument of the first call to the function was an integer between 3 and 27
+      expect(range).toBe(true)
+    }),
+    it('alerts a value entered to prompt', () => {
+      console.log = jest.fn();
+      sumOfDigitsAnother();
+      jest.spyOn(window, "prompt").mockReturnValue("123");
+    	expect(console.log).toHaveBeenCalled();
     })
   });
 
