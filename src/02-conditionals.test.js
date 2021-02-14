@@ -73,6 +73,38 @@ describe('02-conditionals.js', () => {
       printMonthSwitch("3");
       expect(console.log.mock.calls[0][0]).toBe(`March`)
     }),
+    [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ].forEach((el, i)=> {
+      it(`console.log ${el} for ${i + 1}`, () => {
+        console.log = jest.fn();
+        printMonthSwitch(i + 1);
+        expect(console.log.mock.calls[0][0] === el)
+          .toBeTruthy()
+      })
+    }),
+    [
+      '',
+      null
+    ].forEach((el)=> {
+      it(`console.log "Not a valid month number" for ${el}`, () => {
+        console.log = jest.fn();
+        printMonthSwitch(el);
+        expect(console.log.mock.calls[0][0])
+          .toBe('Not a valid month number')
+      })
+    }),
     it('console.log "Not a valid month number" for undefined', () => {
       console.log = jest.fn();
       printMonthSwitch();
