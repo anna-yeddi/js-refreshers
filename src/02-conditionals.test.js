@@ -83,6 +83,31 @@ describe('02-conditionals.js', () => {
   describe('printMonthArr', () => {
     it('is a function', () => {
       expect(typeof printMonthArr).toBe('function')
+    }),
+    it('console.log a string', () => {
+      console.log = jest.fn();
+      printMonthArr(1);
+      expect(typeof console.log.mock.calls[0][0]).toBe(`string`)
+    }),
+    it('console.log "Not a valid month number" for 999', () => {
+      console.log = jest.fn();
+      printMonthArr(999);
+      expect(console.log.mock.calls[0][0]).toBe(`Not a valid month number`)
+    }),
+    it('console.log "February" for 2', () => {
+      console.log = jest.fn();
+      printMonthArr(2);
+      expect(console.log.mock.calls[0][0]).toBe(`February`)
+    }),
+    it('console.log "March" for "3"', () => {
+      console.log = jest.fn();
+      printMonthArr("3");
+      expect(console.log.mock.calls[0][0]).toBe(`March`)
+    }),
+    it('console.log "Not a valid month number" for undefined', () => {
+      console.log = jest.fn();
+      printMonthArr();
+      expect(console.log.mock.calls[0][0]).toBe(`Not a valid month number`)
     })
   });
 
