@@ -3,16 +3,18 @@
 
 console.log("=== Sum of integers 50 through 100: ===");
 
-let sum50 = 0;
-let i = 50;
-
-while (i <= 100) {
-  sum50 += i;
-
-  i++;
+export function sumOfIntegers50to100() {
+  let sum50 = 0;
+  let i = 50;
+  
+  while (i <= 100) {
+    sum50 += i;
+  
+    i++;
+  }
+  
+  console.log(sum50);
 }
-
-console.log(sum50);
 
 /**
  * 2.Вывести в консоль таблицу умножения на 7. 7 x1 = 7
@@ -22,8 +24,10 @@ console.log(sum50);
 
 console.log("=== Seven times table: ===");
 
-for (let j = 1; j <= 9; j++) {
-  console.log(`7 x ${j} = ${j * 7}`);
+export function sevenTimes1to9() {
+  for (let j = 1; j <= 9; j++) {
+    console.log(`7 x ${j} = ${j * 7}`);
+  }
 }
 
 /**
@@ -32,20 +36,22 @@ for (let j = 1; j <= 9; j++) {
 
 console.log("=== Arithmetic mean of odd numbers: ===");
 
-const userInput = +prompt("Enter any number N: ");
-// const userInput = 3
-
-let sumArithMean = 0;
-let count = 0;
-let k = 1;
-
-while (k <= userInput) {
-  sumArithMean += k;
-  count++;
-  k += 2;
+export function arithmeticMeanOdds() {
+  const userInput = +prompt("Enter any number N: ");
+  // const userInput = 3
+  
+  let sumArithMean = 0;
+  let count = 0;
+  let k = 1;
+  
+  while (k <= userInput) {
+    sumArithMean += k;
+    count++;
+    k += 2;
+  }
+  
+  const arithmeticMean = sumArithMean / count;
+  
+  console.log(arithmeticMean);
+  // console.log(`${arithmeticMean} is the arithmetic mean for ${userInput}`);
 }
-
-const arithmeticMean = sumArithMean / count;
-
-console.log(arithmeticMean);
-console.log(`${arithmeticMean} is the arithmetic mean for ${userInput}`);
