@@ -98,9 +98,37 @@ describe('04-objects.js', () => {
   })
 
   describe('createVarsForAdminProps', () => {
+    const mockAdmin = {
+      name: 'John',
+      age: 99,
+      role: "admin"
+    }
+
     test('is a function', () => {
       expect(typeof createVarsForAdminProps).toBe('function')
+    }),
+    test('returns an object', () => {
+      const returnedObject = createVarsForAdminProps(mockAdmin);
+      expect(typeof returnedObject).toBe('object')
+    }),
+    test('returns a new object with values', () => {
+      const returnedObject = createVarsForAdminProps(mockAdmin);
+      expect(returnedObject).not.toBe(mockAdmin)
+    }),
+    test('returns a new object with matching values', () => {
+      const returnedObject = createVarsForAdminProps(mockAdmin);
+      expect(returnedObject).toEqual(mockAdmin)
+    }),
+    test('returns an object of 3 separate variables', () => {
+      const { name, age, role } = createVarsForAdminProps(mockAdmin);
+      expect(typeof name).toBe('string')
+      expect(typeof age).toBe('number')
+      expect(typeof role).toBe('string')
+      expect(name).toEqual(mockAdmin.name)
+      expect(age).toEqual(mockAdmin.age)
+      expect(role).toEqual(mockAdmin.role)
     })
+      
   })
 
 })

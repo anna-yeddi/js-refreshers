@@ -12,7 +12,7 @@ console.log('=== User: ===');
 export function addAge(user) {
   user.age = +prompt("Enter a number: ");
   
-  console.log(user);
+  // console.log(user);
   return user
 }
 
@@ -25,7 +25,7 @@ console.log('=== Admin: ===');
 export function createUserObjCopy(user) {
   const admin = { ...user, role: "admin" };
   
-  console.log(admin);
+  // console.log(admin);
   return admin
 }
 
@@ -38,6 +38,6 @@ console.log('=== Separate variables: ===');
 export function createVarsForAdminProps(admin) {
   const { name, age, role } = admin;
   
-  console.log(`Name: ${name}, age: ${age}, role: ${role}`);
+  console.log(`Name: ${name}, age: ${age}, role: ${role}`, typeof name);
   return { name, age, role }
 }
