@@ -115,8 +115,8 @@ const squareArea = Math.random().toFixed(2) * 100;
 
 export function isCircleFitInSquare(circleArea, squareArea) {
   // Формула для расчета диаметр круга через площадь: D=2√S/π
-  const circleDiam = (2 * Math.sqrt(circleArea)) / Math.PI;
-  const squareSide = Math.sqrt(squareArea);
+  const circleDiam = (2 * Math.sqrt(Number(circleArea))) / Math.PI;
+  const squareSide = Math.sqrt(Number(squareArea));
   
   const isCircleFitInSquare = circleDiam <= squareSide;
   

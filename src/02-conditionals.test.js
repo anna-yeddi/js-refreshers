@@ -114,6 +114,31 @@ describe('02-conditionals.js', () => {
   describe('isCircleFitInSquare', () => {
     it('is a function', () => {
       expect(typeof isCircleFitInSquare).toBe('function')
+    }),
+    it('console.log true for (1, 2)', () => {
+      console.log = jest.fn();
+      isCircleFitInSquare(1, 2);
+      expect(console.log.mock.calls[0][0]).toBeTruthy();
+    }),
+    it('console.log false for (30, 2)', () => {
+      console.log = jest.fn();
+      isCircleFitInSquare(30, 2);
+      expect(console.log.mock.calls[0][0]).toBeFalsy();
+    }),
+    it('console.log boolean', () => {
+      console.log = jest.fn();
+      isCircleFitInSquare(1, 2);
+      expect(typeof console.log.mock.calls[0][0]).toBe('boolean');
+    }),
+    it('console.log false for undefined', () => {
+      console.log = jest.fn();
+      isCircleFitInSquare();
+      expect(console.log.mock.calls[0][0]).toBeFalsy();
+    }),
+    it('console.log false for null and string', () => {
+      console.log = jest.fn();
+      isCircleFitInSquare(null, 'string');
+      expect(console.log.mock.calls[0][0]).toBeFalsy();
     })
   });
   
