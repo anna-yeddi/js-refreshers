@@ -6,7 +6,17 @@ import {
 } from "./02-conditionals.js";
 
 describe('02-conditionals.js', () => {
-
+  let originalConsoleLog;
+  let originalPrompt;
+  beforeEach(() => {
+    originalConsoleLog = console.log;
+    originalPrompt = window.prompt;
+  })
+  afterEach(() => {
+    console.log = originalConsoleLog;
+    window.prompt = originalPrompt
+  })
+  
   describe('biggestAB', () => {
     it('is a function', () => {
       expect(typeof biggestAB).toBe('function')
