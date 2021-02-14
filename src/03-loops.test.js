@@ -5,7 +5,17 @@ import {
 } from "./03-loops.js";
 
 describe('03-loops.js', () => {
-  
+  let originalConsoleLog;
+  let originalPrompt;
+  beforeEach(() => {
+    originalConsoleLog = console.log;
+    originalPrompt = window.prompt;
+  })
+  afterEach(() => {
+    console.log = originalConsoleLog;
+    window.prompt = originalPrompt
+  })
+
   describe('sumOfIntegers50to100', () => {
     it('is a function', () => {
       expect(typeof sumOfIntegers50to100).toBe('function')
@@ -52,6 +62,48 @@ describe('03-loops.js', () => {
   describe('arithmeticMeanOdds', () => {
     it('is a function', () => {
       expect(typeof arithmeticMeanOdds).toBe('function')
+    }),
+    it('console.log a number', () => {
+      console.log = jest.fn();
+      arithmeticMeanOdds();
+      jest.spyOn(window, 'prompt').mockReturnValue('3')
+      expect(typeof console.log.mock.calls[0][0]).toBe('number')
+    }),
+    it('console.log 2 for 3', () => {
+      console.log = jest.fn();
+      jest.spyOn(window, 'prompt').mockReturnValue('3')
+      arithmeticMeanOdds();
+      expect(console.log.mock.calls[0][0]).toBe(2)
+    }),
+    it('console.log 500 for 1000', () => {
+      console.log = jest.fn();
+      jest.spyOn(window, 'prompt').mockReturnValue('1000')
+      arithmeticMeanOdds();
+      expect(console.log.mock.calls[0][0]).toBe(500)
+    }),
+    it('console.log 3 for float 5.5', () => {
+      console.log = jest.fn();
+      jest.spyOn(window, 'prompt').mockReturnValue('5.5')
+      arithmeticMeanOdds();
+      expect(console.log.mock.calls[0][0]).toBe(3)
+    }),
+    it('console.log NaN for string', () => {
+      console.log = jest.fn();
+      jest.spyOn(window, 'prompt').mockReturnValue('string')
+      arithmeticMeanOdds();
+      expect(console.log.mock.calls[0][0]).toBeNan
+    }),
+    it('console.log NaN for empty input', () => {
+      console.log = jest.fn();
+      jest.spyOn(window, 'prompt').mockReturnValue('')
+      arithmeticMeanOdds();
+      expect(console.log.mock.calls[0][0]).toBeNan
+    }),
+    it('console.log NaN for a negative', () => {
+      console.log = jest.fn();
+      jest.spyOn(window, 'prompt').mockReturnValue(-3)
+      arithmeticMeanOdds();
+      expect(console.log.mock.calls[0][0]).toBeNan
     })
   });
 
