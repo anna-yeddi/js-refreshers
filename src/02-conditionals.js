@@ -6,9 +6,12 @@ const a = Math.random().toFixed(5) * 100000;
 const b = Math.random().toFixed(5) * 100000;
 
 export function biggestAB(a, b) {
-  const biggest = a > b ? a : b;
+  const numA = Number(a)
+  const numB = Number(b)
+  const biggest = numA > numB ? numA : numB;
   
-  console.log(`${biggest} is the biggest among ${a} and ${b}`);
+  // console.log(`${biggest} is the biggest among ${a} and ${b}`);
+  console.log(biggest);
 }
 
 biggestAB(a, b);
