@@ -26,8 +26,10 @@ const userInput = +prompt("Enter a number between 1 and 12: ");
 
 // Solution #1:
 
-export function printMonthSwitch(num) {
-  switch (userInput) {
+export function printMonthSwitch(userInput) {
+  const num = Number(userInput)
+
+  switch (num) {
     case 1:
       console.log("January");
       break;
