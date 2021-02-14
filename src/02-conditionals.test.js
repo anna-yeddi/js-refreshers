@@ -104,6 +104,56 @@ describe('02-conditionals.js', () => {
       printMonthArr("3");
       expect(console.log.mock.calls[0][0]).toBe(`March`)
     }),
+    it('console.log "May" for 5', () => {
+      console.log = jest.fn();
+      printMonthArr(5);
+      expect(console.log.mock.calls[0][0]).toBe(`May`)
+    }),
+    it('console.log "April" for "4"', () => {
+      console.log = jest.fn();
+      printMonthArr("4");
+      expect(console.log.mock.calls[0][0]).toBe(`April`)
+    }),
+    it('console.log "June" for 6', () => {
+      console.log = jest.fn();
+      printMonthArr(6);
+      expect(console.log.mock.calls[0][0]).toBe(`June`)
+    }),
+    it('console.log "July" for 7', () => {
+      console.log = jest.fn();
+      printMonthArr(7);
+      expect(console.log.mock.calls[0][0]).toBe(`July`)
+    }),
+    it('console.log "August" for 8', () => {
+      console.log = jest.fn();
+      printMonthArr(8);
+      expect(console.log.mock.calls[0][0]).toBe(`August`)
+    }),
+    it('console.log "September" for 9', () => {
+      console.log = jest.fn();
+      printMonthArr(9);
+      expect(console.log.mock.calls[0][0]).toBe(`September`)
+    }),
+    it('console.log "October" for 10', () => {
+      console.log = jest.fn();
+      printMonthArr(10);
+      expect(console.log.mock.calls[0][0]).toBe(`October`)
+    }),
+    it('console.log "November" for 11', () => {
+      console.log = jest.fn();
+      printMonthArr(11);
+      expect(console.log.mock.calls[0][0]).toBe(`November`)
+    }),
+    it('console.log "December" for 12', () => {
+      console.log = jest.fn();
+      printMonthArr(12);
+      expect(console.log.mock.calls[0][0]).toBe(`December`)
+    }),
+    it('console.log "January" for 1', () => {
+      console.log = jest.fn();
+      printMonthArr(1);
+      expect(console.log.mock.calls[0][0]).toBe(`January`)
+    }),
     it('console.log "Not a valid month number" for undefined', () => {
       console.log = jest.fn();
       printMonthArr();
