@@ -4,7 +4,7 @@
   "main": "01-linear-algorithms.js",
   "scripts": {
     "test": "jest",
-    "test:w": "jest --watch",
+    "test:w": "jest --watchAll",
     "lint": "prettier --check . && eslint .",
     "lint:fix": "prettier --write . && eslint . --fix",
     "build": "babel src -d lib"
