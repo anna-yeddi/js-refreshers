@@ -78,22 +78,28 @@ printMonthSwitch(userInput);
 // Solution #2:
 
 export function printMonthArr(num) {
-  const monthArr = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  
-  console.log("Month is: ", monthArr[userInput - 1]);
+  if (num >= 1 && num <= 12) {
+    const monthArr = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+    
+    // console.log("Month is: ", monthArr[userInput - 1]);
+    console.log(monthArr[num - 1]);
+  } else {
+    console.log("Not a valid month number");
+  }
+
 }
 
 printMonthArr(userInput);
