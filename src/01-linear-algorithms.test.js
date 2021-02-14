@@ -7,17 +7,11 @@ import {
 
 describe('01-linear-algorithms', () => {
   let originalConsoleLog;
-  let originalPrompt;
-  let originalAlert;
   beforeEach(() => {
     originalConsoleLog = console.log;
-    // originalPrompt = window.prompt;
-    // originalAlert = window.alert;
   })
   afterEach(() => {
     console.log = originalConsoleLog;
-    // window.prompt = originalPrompt;
-    // window.alert = originalAlert;
   })
 
   describe('multiplierAndSum', () => {
