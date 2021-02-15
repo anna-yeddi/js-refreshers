@@ -126,6 +126,55 @@ describe('05-arrays.js', () => {
   describe('createArrOfDoubles', () => {
     it('is a function', () => {
       expect(typeof createArrOfDoubles).toBe('function')
+    }),
+    it('console.log an array', () => {
+      console.log = jest.fn()
+      createArrOfDoubles(mockArr)
+      expect(typeof console.log.mock.calls[0][0]).toBe('object')
+    }),
+    it('console.log an array of numbers', () => {
+      console.log = jest.fn()
+      createArrOfDoubles(mockArr)
+      expect(typeof console.log.mock.calls[0][0][0]).toBe('number')
+    }),
+    it('console.log an array from 2 to 20', () => {
+      console.log = jest.fn()
+      createArrOfDoubles(mockArr)
+      expect(console.log.mock.calls[0][0]).toEqual(
+        [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+      )
+    }),
+    it('console.log an array [2, 4, 6, 20] including', () => {
+      console.log = jest.fn()
+      createArrOfDoubles(mockArr)
+      expect(console.log.mock.calls[0][0]).toEqual(
+        expect.arrayContaining([2, 4, 6, 20])
+      )
+    }),
+    it('console.log [] for empty array', () => {
+      console.log = jest.fn()
+      createArrOfDoubles([])
+      expect(console.log.mock.calls[0][0]).toEqual([])
+    }),
+    it('console.log 200 for [100]', () => {
+      console.log = jest.fn()
+      createArrOfDoubles([100])
+      expect(console.log.mock.calls[0][0][0]).toEqual(200)
+    }),
+    it('console.log NaN for an array of strings', () => {
+      console.log = jest.fn()
+      createArrOfDoubles(['one', 'two'])
+      expect(console.log.mock.calls[0][0][0]).toBeNaN()
+    }),
+    it('throw an error for empty array', () => {
+      expect(() => {
+        createArrOfDoubles()
+      }).toThrow()
+    }),
+    it('throw an error for a string', () => {
+      expect(() => {
+        createArrOfDoubles('string')
+      }).toThrow()
     })
   })
 
