@@ -47,7 +47,10 @@ export function printMaxMinItemsMath(arr) {
   const arrMax = Math.max(...arr)
   const arrMin = Math.min(...arr)
   
-  console.log(arrMax, arrMin);
+  console.log(arrMax);
+  console.log(arrMin);
+
+  return { arrMax, arrMin }
 }
 
 // Option 2: Sorting:

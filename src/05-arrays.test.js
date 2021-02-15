@@ -181,6 +181,72 @@ describe('05-arrays.js', () => {
   describe('printMaxMinItemsMath', () => {
     it('is a function', () => {
       expect(typeof printMaxMinItemsMath).toBe('function')
+    }),
+    it('return an object', () => {
+      console.log = jest.fn()
+      const returnedVars = printMaxMinItemsMath(mockArr)
+      expect(typeof returnedVars).toBe('object')
+    }),
+    it('return an object with values of numbers', () => {
+      console.log = jest.fn()
+      const returnedVars = printMaxMinItemsMath(mockArr)
+      expect(typeof returnedVars.arrMax).toBe('number')
+    }),
+    it('return an object with 1 as value of arrMin', () => {
+      console.log = jest.fn()
+      const returnedVars = printMaxMinItemsMath(mockArr)
+      expect(returnedVars.arrMin).toBe(1)
+    }),
+    it('console.log to be called twice', () => {
+      console.log = jest.fn()
+      printMaxMinItemsMath(mockArr)
+      expect(console.log.mock.calls.length).toBe(2)
+      expect(console.log.mock.instances.length).toBe(2)
+    }),
+    it('console.log an array', () => {
+      console.log = jest.fn()
+      printMaxMinItemsMath(mockArr)
+      expect(typeof console.log.mock.calls[0]).toBe("object")
+    }),
+    it('console.log an array of values', () => {
+      console.log = jest.fn()
+      printMaxMinItemsMath(mockArr)
+      expect(console.log.mock.calls[0]).toEqual([10], [1])
+    }),
+    it('console.log an array of numbers', () => {
+      console.log = jest.fn()
+      printMaxMinItemsMath(mockArr)
+      expect(typeof console.log.mock.calls[0][0]).toBe('number')
+    }),
+    it('console.log max 10 for array from 1 to 10', () => {
+      console.log = jest.fn()
+      printMaxMinItemsMath(mockArr)
+      expect(console.log.mock.calls[0][0]).toBe(10)
+    }),
+    it('console.log +-Infinity for empty array', () => {
+      console.log = jest.fn()
+      printMaxMinItemsMath([])
+      expect(console.log.mock.calls[0][0]).toBe(-Infinity, Infinity)
+    }),
+    it('throw error for an empty param', () => {
+      expect(() => {
+        printMaxMinItemsMath()
+      }).toThrow()
+    }),
+    it('console.log NaN for an array of strings', () => {
+      console.log = jest.fn()
+      printMaxMinItemsMath(['one', 'two'])
+      expect(console.log.mock.calls[0][0]).toBeNaN()
+    }),
+    it('console.log undefined for empty array', () => {
+      console.log = jest.fn()
+      printMaxMinItemsMath([])
+      expect(typeof console.log.mock.calls[0][0]).toBe('number')
+    }),
+    it('console.log NaN for a string', () => {
+      console.log = jest.fn()
+      printMaxMinItemsMath('string')
+      expect(console.log.mock.calls[0][0]).toBeNaN()
     })
   })
 
