@@ -37,12 +37,17 @@
   </div>
 
   <form>
-    <label for="new-p__input">
-      Add new text for the page:
-      <textarea name="new-p" id="new-p__input" cols="30" rows="5"></textarea>
-    </label>
+    <div class="container__field">
+      <label for="new-p__input" class="text__label">
+        Add new text for the page:
+      </label>
+    </div>
 
-    <button type="submit">Add it!</button>
+    <div class="container__field">
+      <textarea name="new-p" id="new-p__input" cols="60" rows="5"></textarea>
+    </div>
+
+    <button type="submit" class="btn__submit">Add it!</button>
   </form>
 
   <script src="07-dom.js" async defer></script>

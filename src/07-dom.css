@@ -1,0 +1,42 @@
+:root {
+  box-sizing: border-box;
+  background-color: teal;
+  color: white;
+
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  letter-spacing: 1px;
+}
+
+#paragraphs {
+  font-weight: 300;
+}
+#paragraphs:nth-child(even) {
+  background-color: darkslateblue;
+}
+#paragraphs:nth-child(5) {
+  background-color: darkred;
+}
+
+.container__field {
+  margin: 1.5rem 0;
+}
+
+label.text__label {
+  font-weight: bold;
+}
+
+button.btn__submit {
+  border: solid 2px white;
+  padding: 1rem 2rem;
+  background-color: teal;
+  color: white;
+  font-weight: bold;
+}
+button.btn__submit:focus,
+button.btn__submit:active,
+button.btn__submit:hover {
+  border: solid 1px white;
+  background-color: white;
+  color: teal;
+}
