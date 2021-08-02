@@ -20,7 +20,7 @@ const data = [
 
 // На странице должны быть три текстовых параграфа, поле ввода и кнопка. 
 function drawParags(el, data) {
-  parags.innerHTML = null;
+  el.innerHTML = null;
 
   data.forEach((text) => {
     const p = document.createElement('p');
