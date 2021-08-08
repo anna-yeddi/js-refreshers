@@ -11,8 +11,7 @@
 #paragraphs {
   font-weight: 300;
 }
-
-#paragraphs ol.p-like li {
+#paragraphs li {
   padding-bottom: 0.5rem;
 }
 
