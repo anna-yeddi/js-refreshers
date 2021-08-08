@@ -10,7 +10,7 @@ describe('07-dom-createParagsUI.js', () => {
       let el, data;
       beforeEach(() => {
         el = document.createElement('div');
-        data = ["First", "Second", "Third"];
+        data = ["Originally First", "Originally Second", "Originally Third"];
   
         createParagsUI(el, data);
       })
@@ -73,29 +73,27 @@ describe('07-dom-createParagsUI.js', () => {
         }),
         
         it('limits the number of paragraphs to 5', () => {
-          el.querySelector('textarea').value = 'Fourth';
-          el.querySelector('form').submit();
-          el.querySelector('textarea').value = 'Fifth';
-          el.querySelector('form').submit();
-          el.querySelector('textarea').value = 'Sixth';
-          el.querySelector('form').submit();
-          el.querySelector('textarea').value = 'Seventh';
-          el.querySelector('form').submit();
+          const values = ['Fourth', 'Fifth', 'Sixth', 'Seventh'];
+          values.forEach((value) => {
+            el.querySelector('textarea').value = value;
+            el.querySelector('form').submit();
+          })
 
           expect(el.querySelectorAll('ol#paragraphs li').length).toBe(5);
           expect(data.length).toBe(5);
         }),
 
         it('adds new elements to the top of list', () => {
-          el.querySelector('textarea').value = 'Fourth';
-          el.querySelector('form').submit();
-          el.querySelector('textarea').value = 'Fifth';
-          el.querySelector('form').submit();
+          const values = ['Fourth', 'Fifth', 'Sixth', 'Seventh', 'Eighth'];
+          values.forEach((value) => {
+            el.querySelector('textarea').value = value;
+            el.querySelector('form').submit();
+          })
           
-          expect(el.querySelectorAll('ol#paragraphs li')[0].innerText)
-            .toBe('Fifth');
-          expect(el.querySelectorAll('ol#paragraphs li')[1].innerText)
-            .toBe('Fourth');
+          expect(
+            [...el.querySelectorAll('ol#paragraphs li')]
+            .map((el) => el.innerText))
+            .toEqual(values.reverse());
         })
     })
   })
