@@ -11,11 +11,9 @@
 #paragraphs {
   font-weight: 300;
 }
-#paragraphs:nth-child(even) {
-  background-color: darkslateblue;
-}
-#paragraphs:nth-child(5) {
-  background-color: darkred;
+
+#paragraphs ol.p-like li {
+  padding-bottom: 0.5rem;
 }
 
 .container__field {
