@@ -84,6 +84,18 @@ describe('07-dom-createParagsUI.js', () => {
 
           expect(el.querySelectorAll('ol#paragraphs li').length).toBe(5);
           expect(data.length).toBe(5);
+        }),
+
+        it('adds new elements to the top of list', () => {
+          el.querySelector('textarea').value = 'Fourth';
+          el.querySelector('form').submit();
+          el.querySelector('textarea').value = 'Fifth';
+          el.querySelector('form').submit();
+          
+          expect(el.querySelectorAll('ol#paragraphs li')[0].innerText)
+            .toBe('Fifth');
+          expect(el.querySelectorAll('ol#paragraphs li')[1].innerText)
+            .toBe('Fourth');
         })
     })
   })
