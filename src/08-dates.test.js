@@ -39,6 +39,9 @@ describe('getDay', () => {
       expect(days).toEqual(
         expect.arrayContaining([console.log.mock.calls[0][0]])
       )
+      expect(days).toEqual(
+        expect.arrayContaining([getDay()])
+      )
     })
   })
 })
