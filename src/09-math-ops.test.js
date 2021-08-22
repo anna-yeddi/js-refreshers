@@ -103,5 +103,68 @@ describe('09-math-ops.js', () => {
         expect(console.log.mock.calls[1][0]).toBe(NaN);
       });
     })
+  });
+
+  describe('calcSolutions', () => {
+    it('is a function', () => {
+      expect(calcSolutions).toBeInstanceOf(Function)
+    });
+
+    describe('functional tests with user input', () => {
+      let originalPrompt;
+      beforeEach(() => {
+        originalPrompt = window.prompt
+      });
+      afterEach(() => {
+        window.prompt = originalPrompt
+      });
+
+      it('returns an array', () => {
+        jest.spyOn(window, 'prompt').mockReturnValue('1 4 4');
+        
+        expect(calcSolutions()).toBeInstanceOf(Array);
+      });
+
+      it('returns an array with two numbers', () => {
+        jest.spyOn(window, 'prompt').mockReturnValue('1 4 4');
+        
+        expect(calcSolutions().length).toBe(2);
+      });
+
+      it('returns [-2,-2] for (1, 4, 4)', () => {
+        jest.spyOn(window, 'prompt').mockReturnValue('1 4 4');
+        
+        expect(calcSolutions()).toStrictEqual([-2,-2]);
+      });
+
+      it('returns complex roots for (5, 2, 1)', () => {
+        jest.spyOn(window, 'prompt').mockReturnValue('5 2 1');
+        const expectedRootsArr = ['-0.20000 + 0.40000i', '-0.20000 - 0.40000i'];
+        
+        expect(calcSolutions()).toEqual(
+          expect.arrayContaining(expectedRootsArr)
+        );
+      });
+
+      it('returns same root of -2 for (2, 8, 8)', () => {
+        jest.spyOn(window, 'prompt').mockReturnValue('2 8 8');
+
+        const func = calcSolutions()
+        
+        expect(func[0]).toBe(-2);
+        expect(func[1]).toBe(-2);
+        expect(func[0]).toBe(func[1]);
+        expect(func).toStrictEqual([-2,-2]);
+      });
+
+      it('returns [1.70156, -4.70156] for (1, 3, -8)', () => {
+        jest.spyOn(window, 'prompt').mockReturnValue('1 3 -8');
+        const expectedRootsArr = [1.70156, -4.70156];
+        
+        expect(calcSolutions()).toStrictEqual(
+          expect.arrayContaining(expectedRootsArr)
+        )
+      })
+    }) 
   })
 })

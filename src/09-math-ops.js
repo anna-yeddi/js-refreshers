@@ -38,5 +38,41 @@ export function calcCircumferenceAndArea() {
  */
 
 export function calcSolutions() {
+  const userInputNums = window.prompt('Enter 3 numbers separates with a space (a b c): ');
+  const userInputNumsArr = userInputNums.split(' ');
+  const a = +userInputNumsArr[0];
+  const b = +userInputNumsArr[1];
+  const c = +userInputNumsArr[2];
+
+  let root1;
+  let root2;
+  let roots = new Array();
+
+  let discriminant = b * b - 4 * a * c;
+
+  // real roots
+  if (discriminant >= 0) {
+    if (discriminant === 0) {
+      // one real root (both roots are equal)
+      root1 = root2 = -b / (2 * a);
+    } else {
+      // two real roots
+      root1 = (-b + Math.sqrt(discriminant)) / (2 * a);
+      root2 = (-b - Math.sqrt(discriminant)) / (2 * a);
+    }
+
+    root1 = Math.round(root1 * Math.pow(10, 5)) / Math.pow(10, 5)
+    root2 = Math.round(root2 * Math.pow(10, 5)) / Math.pow(10, 5)
+  } else {
+    // complex roots
+    let realPart = (-b / (2 * a)).toFixed(5);
+    let complexPart = (Math.sqrt(-discriminant) / (2 * a)).toFixed(5);
+
+    root1 = `${realPart} + ${complexPart}i`;
+    root2 = `${realPart} - ${complexPart}i`;
+  }
   
+  roots.push(root1, root2);
+  
+  return roots;
 }
