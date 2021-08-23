@@ -100,4 +100,38 @@ describe('isEmail', () => {
     expect(isEmail('testteststerst')).toBeFalsy();
     expect(isEmail('test.web.ca')).toBeFalsy();
   });
+});
+
+describe('isPhone', () => {
+  it('is a function', () => {
+    expect(isPhone).toBeInstanceOf(Function)
+  });
+
+  it('returns a boolean', () => {
+    expect(typeof isPhone('123-123-1234')).toBe('boolean')
+  });
+
+  it('returns TRUE for 10-digit phone numbers without separators', () => {
+    expect(isPhone('1231231234')).toBeTruthy();
+    expect(isPhone('2022020000')).toBeTruthy();
+    expect(isPhone('2345678901')).toBeTruthy();
+  });
+
+  it('returns TRUE for 10-digit phone numbers with "-"', () => {
+    expect(isPhone('123-123-1234')).toBeTruthy();
+    expect(isPhone('202-202-0000')).toBeTruthy();
+    expect(isPhone('123-123-12-34')).toBeTruthy();
+    expect(isPhone('202-202-00-00')).toBeTruthy();
+    expect(isPhone('202-2020000')).toBeTruthy();
+    expect(isPhone('123-1231234')).toBeTruthy();
+  });
+
+  it('returns TRUE for 10-digit phone numbers with "."', () => {
+    expect(isPhone('123.123.1234')).toBeTruthy();
+    expect(isPhone('202.202.0000')).toBeTruthy();
+    expect(isPhone('123.123.12.34')).toBeTruthy();
+    expect(isPhone('202.202.00.00')).toBeTruthy();
+    expect(isPhone('202.2020000')).toBeTruthy();
+    expect(isPhone('123.1231234')).toBeTruthy();
+  });
 })
