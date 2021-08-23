@@ -18,6 +18,9 @@ export function isDate(input) {
  */
 
 export function isEmail(input) {
+  const regexp = /^[0-9a-zA-Z+-\.]+@[0-9a-zA-Z-\.]+\.[a-zA-Z]{2,6}$/i;
+
+  return regexp.test(input);
 }
 
 /**
