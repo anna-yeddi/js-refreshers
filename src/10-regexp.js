@@ -18,7 +18,6 @@ export function isDate(input) {
  */
 
 export function isEmail(input) {
-  
 }
 
 /**

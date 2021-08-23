@@ -1,4 +1,3 @@
-import { boolean } from 'yargs';
 import { isDate, isEmail, isPhone } from './10-regexp.js';
 
 describe('isDate', () => {
@@ -47,4 +46,58 @@ describe('isDate', () => {
     expect(isDate('')).toBeFalsy();
     expect(isDate()).toBeFalsy();
   })
+});
+
+describe('isEmail', () => {
+  it('is a function', () => {
+    expect(isEmail).toBeInstanceOf(Function)
+  });
+
+  it('returns a boolean', () => {
+    expect(typeof isEmail('t@test.com')).toBe('boolean')
+  });
+
+  it('returns TRUE for email addresses', () => {
+    expect(isEmail('t@test.com')).toBeTruthy();
+    expect(isEmail('test@t.tech')).toBeTruthy();
+    expect(isEmail('testteststerst@tezzt.online')).toBeTruthy();
+    expect(isEmail('test@web.ca')).toBeTruthy();
+    expect(isEmail('TEST@TEST.COM')).toBeTruthy();
+  });
+  
+  it('returns TRUE for email addresses with numbers', () => {
+    expect(isEmail('123@web.eu')).toBeTruthy();
+    expect(isEmail('test@123.org')).toBeTruthy();
+    expect(isEmail('0987654321@123.org')).toBeTruthy();
+  });
+  
+  it('returns TRUE for email addresses with "-"', () => {
+    expect(isEmail('t-t@test.com')).toBeTruthy();
+    expect(isEmail('test@t-t.tech')).toBeTruthy();
+    expect(isEmail('test-test-sterst@test.org')).toBeTruthy();
+  });
+  
+  it('returns TRUE for email addresses with "."', () => {
+    expect(isEmail('t.t@test.com')).toBeTruthy();
+    expect(isEmail('test@t.t.tech')).toBeTruthy();
+    expect(isEmail('test.test.sterst@test.org')).toBeTruthy();
+  });
+  
+  it('returns TRUE for email addresses with "+" in the name', () => {
+    expect(isEmail('t+t@test.com')).toBeTruthy();
+    expect(isEmail('test+test+sterst@test.org')).toBeTruthy();
+  });
+  
+  it('returns FALSE for non-email addresses', () => {
+    expect(isEmail('t@test')).toBeFalsy();
+    expect(isEmail('t@test.t')).toBeFalsy();
+    expect(isEmail('t@test.123')).toBeFalsy();
+    expect(isEmail('t/@test.com')).toBeFalsy();
+    expect(isEmail('t|@test.com')).toBeFalsy();
+    expect(isEmail('t>@test.com')).toBeFalsy();
+    expect(isEmail('t≤@test.com')).toBeFalsy();
+    expect(isEmail('t.tech')).toBeFalsy();
+    expect(isEmail('testteststerst')).toBeFalsy();
+    expect(isEmail('test.web.ca')).toBeFalsy();
+  });
 })
