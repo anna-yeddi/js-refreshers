@@ -161,6 +161,9 @@ describe('isPhone', () => {
 
   it('returns TRUE for non-phone numbers', () => {
     expect(isPhone('+1.123.123')).toBeFalsy();
+    expect(isPhone('-1.123.123.1234')).toBeFalsy();
+    expect(isPhone('+1.123..123.1234')).toBeFalsy();
+    expect(isPhone('123/123/1234')).toBeFalsy();
     expect(isPhone('+7-202-202--')).toBeFalsy();
     expect(isPhone('+2.123.123.12.34000')).toBeFalsy();
     expect(isPhone('+111.202.202.00.00')).toBeFalsy();

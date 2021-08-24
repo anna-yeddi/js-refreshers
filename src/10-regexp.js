@@ -28,5 +28,7 @@ export function isEmail(input) {
  */
 
 export function isPhone(input) {
-  
+  const regexp = /^\+?[0-9]?[.-]?[0-9]{3}[.-]?[0-9]{3}[.-]?[0-9]{2}[.-]?[0-9]{2}$/
+
+  return regexp.test(input);
 }
