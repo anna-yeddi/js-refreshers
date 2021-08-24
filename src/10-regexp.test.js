@@ -134,4 +134,37 @@ describe('isPhone', () => {
     expect(isPhone('202.2020000')).toBeTruthy();
     expect(isPhone('123.1231234')).toBeTruthy();
   });
+
+  it('returns TRUE for 11-digit international phone numbers without separators', () => {
+    expect(isPhone('+71231231234')).toBeTruthy();
+    expect(isPhone('+12022020000')).toBeTruthy();
+    expect(isPhone('+22345678901')).toBeTruthy();
+  });
+
+  it('returns TRUE for 11-digit international phone numbers with "-"', () => {
+    expect(isPhone('+1-123-123-1234')).toBeTruthy();
+    expect(isPhone('+7-202-202-0000')).toBeTruthy();
+    expect(isPhone('+2-123-123-12-34')).toBeTruthy();
+    expect(isPhone('+1-202-202-00-00')).toBeTruthy();
+    expect(isPhone('+1-202-2020000')).toBeTruthy();
+    expect(isPhone('+1-123-1231234')).toBeTruthy();
+  });
+
+  it('returns TRUE for 11-digit international phone numbers with "."', () => {
+    expect(isPhone('+1.123.123.1234')).toBeTruthy();
+    expect(isPhone('+7.202.202.0000')).toBeTruthy();
+    expect(isPhone('+2.123.123.12.34')).toBeTruthy();
+    expect(isPhone('+1.202.202.00.00')).toBeTruthy();
+    expect(isPhone('+1.202.2020000')).toBeTruthy();
+    expect(isPhone('+1.123.1231234')).toBeTruthy();
+  });
+
+  it('returns TRUE for non-phone numbers', () => {
+    expect(isPhone('+1.123.123')).toBeFalsy();
+    expect(isPhone('+7-202-202--')).toBeFalsy();
+    expect(isPhone('+2.123.123.12.34000')).toBeFalsy();
+    expect(isPhone('+111.202.202.00.00')).toBeFalsy();
+    expect(isPhone('asdasda')).toBeFalsy();
+    expect(isPhone('2-222')).toBeFalsy();
+  });
 })
