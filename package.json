@@ -6,7 +6,7 @@
     "test": "jest",
     "test:w": "jest --watchAll",
     "lint": "prettier --check . && eslint .",
-    "lint:fix": "prettier --write . && eslint . --fix",
+    "lint:fix": "prettier --write . --ignore-path .gitignore && eslint . --fix",
     "build": "babel src -d lib"
   },
   "jest": {
@@ -16,15 +16,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/an-kova/js-refreshers.git"
+    "url": "git+https://github.com/anna-yeddi/js-refreshers.git"
   },
   "keywords": [],
-  "author": "Anna Kova",
+  "author": "Anna Kova (Yeddi)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/an-kova/js-refreshers/issues"
+    "url": "https://github.com/anna-yeddi/js-refreshers/issues"
   },
-  "homepage": "https://github.com/an-kova/js-refreshers#readme",
+  "homepage": "https://github.com/anna-yeddi/js-refreshers#readme",
   "description": "",
   "devDependencies": {
     "@babel/cli": "^7.12.13",

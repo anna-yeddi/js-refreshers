@@ -2,23 +2,29 @@
  * Создайте массив целых чисел из 10 элементов.
  * 1.Выведите в консоль сумму всех элементов массива. */
 
-const arr = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+const arr1 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
 // Option 1: Map method:
 export function sumArrOf10Map(arr) {
   let sumArr = 0;
-  arr.map((num) => { sumArr += num })
+  arr.map((num) => {
+    sumArr += num;
+  });
   console.log(sumArr);
 }
+
+sumArrOf10Map(arr1);
 
 // Option 2: ForEach method:
 export function sumArrOf10ForEach(arr) {
   let sumArr = 0;
   arr.forEach((num) => {
-    sumArr += num
-  })
+    sumArr += num;
+  });
   console.log(sumArr);
 }
+
+sumArrOf10ForEach(arr1);
 
 // Option 3: Reducer:
 export function sumArrOf10Reducer(arr) {
@@ -26,6 +32,8 @@ export function sumArrOf10Reducer(arr) {
   sumArr = arr.reduce((prev, num) => prev + num, 0);
   console.log(sumArr);
 }
+
+sumArrOf10Reducer(arr1);
 
 /**
  * 2.Создайте новый массив на основе исходного, в котором
@@ -38,20 +46,24 @@ export function createArrOfDoubles(arr) {
   console.log(newArr);
 }
 
+createArrOfDoubles(arr1);
+
 /**
  * 3.*Найдите и выведите в консоль наибольший и наименьший
  * элементы исходного массива. */
 
 // Option 1: Math object:
 export function printMaxMinItemsMath(arr) {
-  const arrMax = Math.max(...arr)
-  const arrMin = Math.min(...arr)
-  
+  const arrMax = Math.max(...arr);
+  const arrMin = Math.min(...arr);
+
   console.log(arrMax);
   console.log(arrMin);
 
-  return { arrMax, arrMin }
+  return { arrMax, arrMin };
 }
+
+printMaxMinItemsMath(arr1);
 
 // Option 2: Sorting:
 export function printMaxMinItemsSort(arr) {
@@ -61,8 +73,10 @@ export function printMaxMinItemsSort(arr) {
   const arrMin = arrSortedDesc[arrSortedDesc.length - 1];
 
   // console.log(`Max is ${arrMax}, Min is ${arrMin}`);
-  console.log(arrMax)
-  console.log(arrMin)
+  console.log(arrMax);
+  console.log(arrMin);
 
-  return { arrMax, arrMin }
+  return { arrMax, arrMin };
 }
+
+printMaxMinItemsSort(arr1);

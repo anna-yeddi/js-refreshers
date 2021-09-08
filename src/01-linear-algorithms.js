@@ -18,16 +18,17 @@ multiplierAndSum(num1, num2);
  * Написать программу, которая выведет в консоль суммарное
  * количество символов в обоих строках. */
 
-const str1 =
-  "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Saepe nemo totam architecto impedit inventore?";
-const str2 =
-  "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus, consequatur sapiente. Minus a ab quos recusandae delectus. Quae, nihil error.";
+const str1 = `Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+Saepe nemo totam architecto impedit inventore?`;
+const str2 = `Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+Necessitatibus, consequatur sapiente. Minus a ab quos recusandae delectus.
+  Quae, nihil error.`;
 
 export function sumStringsLength(strLine1, strLine2) {
   console.log((strLine1 + strLine2).length);
 }
 
-sumStringsLength(str1, str2)
+sumStringsLength(str1, str2);
 
 /**
  *  3. * Написать программу, которая запрашивает у пользователя ввод
@@ -38,15 +39,15 @@ sumStringsLength(str1, str2)
 
 // Solution #1:
 export function sumOfDigits() {
-  const userInput = '456'
+  const userInput = "456";
   // const userInput = prompt("Enter 3-digit number: ");
-  
+
   let sum = 0;
-  
+
   for (let i = 0; i < userInput.length; i++) {
     sum += Number(userInput[i]);
   }
-  
+
   // console.log("Sum:", sum, "from the input of", userInput);
   console.log(sum);
 }
@@ -54,17 +55,17 @@ export function sumOfDigits() {
 sumOfDigits();
 
 // Solution #2:
-export function sumOfDigitsAnother() { 
+export function sumOfDigitsAnother() {
   // const userInput = '456'
   const userInput = prompt("Enter 3-digit number: ");
   const num = Number(userInput);
-  
+
   const digit3 = num % 10;
   const digit1 = (num - (num % 100)) / 100;
   const digit2 = (num - digit1 * 100 - digit3) / 10;
-  
+
   // console.log("Sum (solution 2):", digit1 + digit2 + digit3);
   console.log(digit1 + digit2 + digit3);
 }
 
-sumOfDigitsAnother()
+sumOfDigitsAnother();

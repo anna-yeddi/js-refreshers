@@ -5,11 +5,11 @@
 const a = Math.random().toFixed(5) * 100000;
 const b = Math.random().toFixed(5) * 100000;
 
-export function biggestAB(a, b) {
-  const numA = Number(a)
-  const numB = Number(b)
+export function biggestAB(a1, b1) {
+  const numA = Number(a1);
+  const numB = Number(b1);
   const biggest = numA > numB ? numA : numB;
-  
+
   // console.log(`${biggest} is the biggest among ${a} and ${b}`);
   console.log(biggest);
 }
@@ -26,8 +26,8 @@ const userInput = +prompt("Enter a number between 1 and 12: ");
 
 // Solution #1:
 
-export function printMonthSwitch(userInput) {
-  const num = Number(userInput)
+export function printMonthSwitch(userInput1) {
+  const num = Number(userInput1);
 
   switch (num) {
     case 1:
@@ -66,7 +66,7 @@ export function printMonthSwitch(userInput) {
     case 12:
       console.log("December");
       break;
-  
+
     default:
       console.log("Not a valid month number");
       break;
@@ -93,13 +93,12 @@ export function printMonthArr(num) {
       "November",
       "December",
     ];
-    
+
     // console.log("Month is: ", monthArr[userInput - 1]);
     console.log(monthArr[num - 1]);
   } else {
     console.log("Not a valid month number");
   }
-
 }
 
 printMonthArr(userInput);
@@ -113,16 +112,16 @@ printMonthArr(userInput);
 const circleArea = Math.random().toFixed(2) * 100;
 const squareArea = Math.random().toFixed(2) * 100;
 
-export function isCircleFitInSquare(circleArea, squareArea) {
+export function isCircleFitInSquare(circleArea1, squareArea1) {
   // Формула для расчета диаметр круга через площадь: D=2√S/π
-  const circleDiam = (2 * Math.sqrt(Number(circleArea))) / Math.PI;
-  const squareSide = Math.sqrt(Number(squareArea));
-  
-  const isCircleFitInSquare = circleDiam <= squareSide;
-  
+  const circleDiam = (2 * Math.sqrt(Number(circleArea1))) / Math.PI;
+  const squareSide = Math.sqrt(Number(squareArea1));
+
+  const isCircleFitInSquareBool = circleDiam <= squareSide;
+
   // console.log(`${isCircleFitInSquare} while the circle area is ${circleArea} and its diameter is ${circleDiam}
   //   and the square area is ${squareArea} and its side is ${squareSide}`);
-  console.log(isCircleFitInSquare);
+  console.log(isCircleFitInSquareBool);
 }
 
-isCircleFitInSquare(circleArea, squareArea)
+isCircleFitInSquare(circleArea, squareArea);

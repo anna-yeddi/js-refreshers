@@ -6,13 +6,13 @@ console.log("=== Sum of integers 50 through 100: ===");
 export function sumOfIntegers50to100() {
   let sum50 = 0;
   let i = 50;
-  
+
   while (i <= 100) {
     sum50 += i;
-  
-    i++;
+
+    i += 1;
   }
-  
+
   console.log(sum50);
 }
 
@@ -39,19 +39,19 @@ console.log("=== Arithmetic mean of odd numbers: ===");
 export function arithmeticMeanOdds() {
   const userInput = +prompt("Enter any number N: ");
   // const userInput = 3
-  
+
   let sumArithMean = 0;
   let count = 0;
   let k = 1;
-  
+
   while (k <= userInput) {
     sumArithMean += k;
-    count++;
+    count += 1;
     k += 2;
   }
-  
+
   const arithmeticMean = sumArithMean / count;
-  
+
   console.log(arithmeticMean);
   // console.log(`${arithmeticMean} is the arithmetic mean for ${userInput}`);
 }
