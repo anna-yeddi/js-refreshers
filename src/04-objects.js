@@ -3,26 +3,47 @@
  * 1.Запросить у пользователя ввод числа. Записать введенное значение
  * в поле age объекта user. */
 
-const user = {
+const userNew = {
   name: "John",
 };
 
-user.age = +prompt("Enter a number: ");
+console.log("=== User: ===");
 
-console.log("User:", user);
+export function addAge(user) {
+  user.age = +prompt("Enter a number: ");
+
+  // console.log(user);
+  return user;
+}
+
+addAge(userNew);
 
 /**
  * 2.Создать копию объекта user с именем admin.
  * Добавить новому объекту поле role со значением ‘admin’. */
 
-const admin = { ...user, role: "admin" };
+console.log("=== Admin: ===");
 
-console.log("Admin:", admin);
+export function createUserObjCopy(user) {
+  const admin = { ...user, role: "admin" };
+
+  // console.log(admin);
+  return admin;
+}
+
+const adminNew = createUserObjCopy(userNew);
 
 /**
  * 3*. Записать все значения полей объекта admin в отдельные переменные.
  * Имена переменных должны совпадать с названиями полей. */
 
-const { name, age, role } = admin;
+console.log("=== Separate variables: ===");
 
-console.log(`Name: ${name}, age: ${age}, role: ${role}`);
+export function createVarsForAdminProps(admin) {
+  const { name, age, role } = admin;
+
+  console.log(`Name: ${name}, age: ${age}, role: ${role}`, typeof name);
+  return { name, age, role };
+}
+
+createVarsForAdminProps(adminNew);

@@ -5,9 +5,16 @@
 const a = Math.random().toFixed(5) * 100000;
 const b = Math.random().toFixed(5) * 100000;
 
-const biggest = a > b ? a : b;
+export function biggestAB(a1, b1) {
+  const numA = Number(a1);
+  const numB = Number(b1);
+  const biggest = numA > numB ? numA : numB;
 
-console.log(`${biggest} is the biggest among ${a} and ${b}`);
+  // console.log(`${biggest} is the biggest among ${a} and ${b}`);
+  console.log(biggest);
+}
+
+biggestAB(a, b);
 
 /**
  * 2. Запросить у пользователя ввод числа от 1 до 12.
@@ -19,67 +26,82 @@ const userInput = +prompt("Enter a number between 1 and 12: ");
 
 // Solution #1:
 
-switch (userInput) {
-  case 1:
-    console.log("January");
-    break;
-  case 2:
-    console.log("February");
-    break;
-  case 3:
-    console.log("March");
-    break;
-  case 4:
-    console.log("April");
-    break;
-  case 5:
-    console.log("May");
-    break;
-  case 6:
-    console.log("June");
-    break;
-  case 7:
-    console.log("July");
-    break;
-  case 8:
-    console.log("August");
-    break;
-  case 9:
-    console.log("September");
-    break;
-  case 10:
-    console.log("October");
-    break;
-  case 11:
-    console.log("November");
-    break;
-  case 12:
-    console.log("December");
-    break;
+export function printMonthSwitch(userInput1) {
+  const num = Number(userInput1);
 
-  default:
-    console.log("Not a valid month number");
-    break;
+  switch (num) {
+    case 1:
+      console.log("January");
+      break;
+    case 2:
+      console.log("February");
+      break;
+    case 3:
+      console.log("March");
+      break;
+    case 4:
+      console.log("April");
+      break;
+    case 5:
+      console.log("May");
+      break;
+    case 6:
+      console.log("June");
+      break;
+    case 7:
+      console.log("July");
+      break;
+    case 8:
+      console.log("August");
+      break;
+    case 9:
+      console.log("September");
+      break;
+    case 10:
+      console.log("October");
+      break;
+    case 11:
+      console.log("November");
+      break;
+    case 12:
+      console.log("December");
+      break;
+
+    default:
+      console.log("Not a valid month number");
+      break;
+  }
 }
+
+printMonthSwitch(userInput);
 
 // Solution #2:
 
-const monthArr = [
-  "January",
-  "February",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
+export function printMonthArr(num) {
+  if (num >= 1 && num <= 12) {
+    const monthArr = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
 
-console.log("Month is: ", monthArr[userInput - 1]);
+    // console.log("Month is: ", monthArr[userInput - 1]);
+    console.log(monthArr[num - 1]);
+  } else {
+    console.log("Not a valid month number");
+  }
+}
+
+printMonthArr(userInput);
 
 /**
  * 3*. В переменных circle и square хранятся площади круга и квадрата соответственно.
@@ -90,11 +112,16 @@ console.log("Month is: ", monthArr[userInput - 1]);
 const circleArea = Math.random().toFixed(2) * 100;
 const squareArea = Math.random().toFixed(2) * 100;
 
-// Формула для расчета диаметр круга через площадь: D=2√S/π
-const circleDiam = (2 * Math.sqrt(circleArea)) / Math.PI;
-const squareSide = Math.sqrt(squareArea);
+export function isCircleFitInSquare(circleArea1, squareArea1) {
+  // Формула для расчета диаметр круга через площадь: D=2√S/π
+  const circleDiam = (2 * Math.sqrt(Number(circleArea1))) / Math.PI;
+  const squareSide = Math.sqrt(Number(squareArea1));
 
-const circleCanFitInSquare = circleDiam <= squareSide;
+  const isCircleFitInSquareBool = circleDiam <= squareSide;
 
-console.log(`${circleCanFitInSquare} while the circle area is ${circleArea} and its diameter is ${circleDiam}
-  and the square area is ${squareArea} and its side is ${squareSide}`);
+  // console.log(`${isCircleFitInSquare} while the circle area is ${circleArea} and its diameter is ${circleDiam}
+  //   and the square area is ${squareArea} and its side is ${squareSide}`);
+  console.log(isCircleFitInSquareBool);
+}
+
+isCircleFitInSquare(circleArea, squareArea);

@@ -4,7 +4,12 @@ module.exports = {
     es2021: true,
     "jest/globals": true,
   },
-  extends: ["airbnb-base", "plugin:jest/recommended", "eslint-config-prettier"],
+  extends: [
+    "airbnb-base",
+    "plugin:jest/recommended",
+    "prettier",
+    "eslint-config-prettier",
+  ],
   parserOptions: {
     ecmaVersion: 12,
     sourceType: "module",
@@ -15,6 +20,11 @@ module.exports = {
     "jest/no-identical-title": "error",
     "jest/prefer-to-have-length": "warn",
     "jest/valid-expect": "error",
+    "max-len": ["error", { ignoreComments: true }],
+    "no-console": "off",
+    "no-alert": "off",
+    "no-plusplus": ["error", { allowForLoopAfterthoughts: true }],
+    "prefer-regex-literals": "off",
   },
   plugins: ["jest"],
 };
